@@ -6,6 +6,29 @@
     <title>Document</title>
 </head>
 <body>
-    exercise 8
+    <!-- Problem: user wants a random dice value -->
+    <!-- user selects a dice value -->
+    <select name="dieType" id="dieType">
+        <option value="4">d4</option>
+        <option value="6">d6</option>
+        <option value="8">d8</option>
+        <option value="10">d10</option>
+    </select>
+    <!-- user wants to roll dice using onclick -->
+    <!-- onclick fires a js function rollTheDice -->
+    <button onclick="rollTheDice()">Roll</button>
+    <!-- paragraph where the roll value will be put -->
+    <p id="rollValue"></p>
+    <script>
+        function rollTheDice() {
+            // get and set the dice value from the select option
+            const diceValue = document.getElementById("dieType").value;
+            // generate a random number from the dice value
+            const randomVal = Math.ceil(Math.random() * diceValue);
+            // display randomVal back to the screen
+            const rollValue = document.getElementById("rollValue");
+            rollValue.innerText = randomVal;
+        }
+    </script>
 </body>
 </html>
